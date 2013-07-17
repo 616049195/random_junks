@@ -51,8 +51,15 @@ public class Polymolly {
 		// Futball _fb_ = _list1.get(0);
 		// this shouldn't work b/c _list1 has type Object, and it will return Object type.
 		// INCOMPATIBLE TYPE
-		Object _fb_ = _list1.get(0);
+		Object _ob_ = _list1.get(0);
 
+		// with cast, however, it may go back
+		Futball _fb_ = (Futball)_list1.get(0);
+		System.out.println(_fb_.getClass());
+
+		// if unsure of it's sublcass, then use instance of
+		if (_fb_ instanceof Futball)
+			System.out.println("YES!");
 
 
 		System.out.println("\nDone.");

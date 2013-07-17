@@ -13,18 +13,24 @@ public class Abstractness {
 		_apple.peel();
 		_banana.peel();
 
+		Fruits _fruits;
+		// thought class Fruit is abstract, it still can be used a ref.
+		_fruits = new Apple();
+		// class Fruits referring to Apple.
+		// _fruits = new Fruits();
+		// does not work, because abstract can't be instantiated!
+
 		System.out.println("\nDone.");
 	} 
 }
 
-class Fruits {
+abstract class Fruits {
 	String _color;
 	boolean _isJuicy;
 	boolean _hasSkin;
 
 	public void peel () {
-		_hasSkin = false;
-		System.out.println(this.getClass() + " is peeled.");
+
 	}
 
 	public void squish () {
@@ -39,6 +45,11 @@ class Apple extends Fruits {
 		_isJuicy = true;
 		_hasSkin = true;
 	}
+	public void peel () {
+			_hasSkin = false;
+		System.out.println(this.getClass() + " is peeled.");
+	
+	}
 }
 
 class Banana extends Fruits {
@@ -46,5 +57,10 @@ class Banana extends Fruits {
 		_color = "yellow";
 		_isJuicy = false;
 		_hasSkin = true;
+	}
+	public void peel () {
+			_hasSkin = false;
+		System.out.println("Banana....." + this.getClass() + " is peeled.");
+	
 	}
 }
