@@ -49,3 +49,14 @@ class Miracle {
 		System.out.println("WOW!!!");
 	}
 }
+
+/*
+*	Static method cannot use instance variables
+*	Marking constructors as private will let you use static methods and keep you away from making a object(ex. Math class)
+*	Static variable = ONE variable for class (ONE for ALL instances)
+* 	Static variables must be assigned in declaration or in static initializer
+*	Final class are NOT allowed to be extended.
+* 	Final methods are NOT allowed to be overridden.
+* 	Final variable are NOT allowed to be modified.
+* 	Final vairable must be assigned at its declaration or during constructor.
+*/
