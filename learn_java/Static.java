@@ -15,6 +15,14 @@ public class Static {
 	}
 }
 
+class Full {
+	String s = "I am full!";
+
+	public void say_out_loud () {
+		System.out.println(s);
+	}
+}
+
 class Miracle {
 	int breads;
 	int fish;
@@ -39,9 +47,13 @@ class Miracle {
 	public static int give_magic (int stock) {
 		// int total = breads+fish;
 		// shout_out();
-		// you may not access non-static values NOR non static methods.
+		// you may not access non-static values NOR non static methods without defining it.
 		int total = infinite;
-		
+
+		Full _say = new Full();
+		_say.say_out_loud();
+		// you may create new object of classes.
+
 		return stock + infinite;
 	}
 
