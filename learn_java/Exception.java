@@ -4,7 +4,6 @@ public class Exception {
 	public static void main (String[] args) {
 		System.out.println("Hello!\n");
 
-		Test _aTest = new Test();
 		Exception exception = new Exception();
 
 		// runtime exception - forcefully checked.
@@ -80,8 +79,30 @@ public class Exception {
 		// finally(s)
 		test_finally(exception);
 
+		// exception must be caught from small to large
+		// try {
+		// 	exception.risky_mult_2(10);
+		// }
+		// catch (HoneymoonBabyException e) {
+		// 	System.out.println("Caught HoneymoonBabyException!");
+		// }
+		// catch (UnderException e) {
+		// 	System.out.println("Caught UnderException!");
+		// }
+
+		// find out if UnderException is a subclass of Throwable.
+		System.out.println("\n\n");
+		UnderException e = new UnderException();
+		System.out.println(e.getClass());
+
+		System.out.println(e.hashCode());
+		e.getSuper();
+
 		System.out.println("\nDone.");
 	}
+
+
+// ----- end of main ------
 
 	public static void test_finally (Exception exception) {
 				// finally with returns in try/catch block
@@ -122,9 +143,13 @@ public class Exception {
 			throw new HoneymoonBabyException();
 		}
 	}
+
+	// public void risky_mult_2 (int prob) throws UnderException, HoneymoonBabyException {
+	// 	throw new UnderException();
+	// }
 }
 
-// make a new Exception class.
+// make a new Exception class. (same level with Exception class)
 class HoneymoonBabyException extends Throwable {
 	String _new_message;
 
@@ -134,6 +159,23 @@ class HoneymoonBabyException extends Throwable {
 
 	public String getMessage () {
 		return _new_message;
+	}
+}
+
+// make a new Exception class. (under Exception class)
+class UnderException extends Exception {
+	String _new_message;
+
+	UnderException () {
+		_new_message = "Subclass of Exception class.";
+	}
+
+	public String getMessage() {
+		return _new_message;
+	}
+
+	public void getSuper () {
+		System.out.println(super.hashCode());
 	}
 }
 
