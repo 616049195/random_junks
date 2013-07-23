@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Interface {
 	public static void main (String[] args) {
 		System.out.println("Hello!\n");
@@ -15,6 +17,22 @@ public class Interface {
 		_bp.re_color("Yellow");
 		_bp.resize(11);
 		_bp.empty_out();
+
+		ArrayList<Crafted> _aList = new ArrayList<Crafted>();
+		_aList.add(_bp);
+		Crafted _bp2 = _aList.get(0);
+
+		_bp2.resize(1);
+		_bp2.re_color("Red");
+		// _bp2 knows about methods in Interface Crafted
+
+		// _bp2.put();
+		// does not compie. doesn't know about Backpack's methods.
+
+		Backpack _bp3 = (Backpack)_bp2;
+		_bp3.put();
+		// casting _bp2 back to Backpack works. NOW it knows about Backpack stuffs.
+
 
 		System.out.println("\nDone.");
 	}
