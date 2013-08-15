@@ -1,4 +1,6 @@
 my_projects
 ===========
 
-random projects
+This is a folder for my personal projects.
+There is nothing to surprise you.
+I'm just playing around with codes.
