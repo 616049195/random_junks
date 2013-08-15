@@ -3,6 +3,8 @@ Welcome to Battleship.
 This is a noobie version. 
 Only purpose was to learn Python.
 
+** didn't fix user-input yet.
+
 1 Player game.
 Grid size = 5x5
 4 turns.
