@@ -1,3 +1,5 @@
+from random import randint # for Magic class
+
 class Player(object):
 	_name = ""
 	_age = -1
@@ -17,11 +19,37 @@ class Player(object):
 
 class Magic(object):
 	""" does the magic"""
-	number = -1
+	number = 0
+	ran_num = 0
 
 	def intro(self):
 		print "Choose a number between 1 and 10."
-		self.number = int(raw_input("Once you are done, enter the number: "))
+		
+		wait = True
+		while (wait):
+			if raw_input("Once you are done, enter \"YES\": ").lower() == 'yes':
+				wait = False
+	
+	def doing_magic(self):
+		""" asks the user to add a randomized number """
+		self.ran_num = randint(1,10)
+		self.number += self.ran_num
+		print "Add %s to your number." % (self.ran_num)
+
+	def show_magic(self):
+
+		_sum = int(raw_input("What is your sum?: "))
+		print "Your number was %s" % (_sum - number)
+
+	def start(self):
+		self.intro()
+
+		for x in range(0, randint(3,7)):
+			self.doing_magic()
+			raw_input("Once you are done, type ENTER.")
+			
+		self.show_magic()
+
 
 
 
@@ -29,13 +57,9 @@ user = Player()
 user.welcome()
 user.get_info()
 
-# print "%s %s %s" % (user._name, user._age, user._gender)
 
-
-# game = Magic()
-
-
-
+game = Magic()
+game.start()
 
 
 
