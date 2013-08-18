@@ -1,3 +1,10 @@
+"""
+# credit goes to: HK
+# created on 2014.08.17
+# status: semi-done
+"""
+
+
 from random import randint # for Magic class
 
 class Player(object):
@@ -7,9 +14,10 @@ class Player(object):
 
 	def welcome(self):
 		"""Welcomes our users"""
-		print "Welcome to Magic #1."
+		print "\nWelcome to Magic #1."
 		print "This is a little trick for kids under age 8."
-		# blahblahblah
+		print "Let the magic begin!\n"
+		self.get_info()
 
 	def get_info (self):
 		""" Ask and store user's data """
@@ -53,15 +61,14 @@ class Magic(object):
 
 
 
-
+# create a user and invoke welcome.
 user = Player()
 user.welcome()
-user.get_info()
 
-
+# create a Magic class and invoke
 game = Magic()
 game.start()
 
 
 
-print "\nGood Bye..."
+print "\nGood Bye...\n"
