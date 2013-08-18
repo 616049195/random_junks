@@ -13,9 +13,9 @@ class Player(object):
 
 	def get_info (self):
 		""" Ask and store user's data """
-		self._name = raw_input("What is your name?")
-		self._age = int(raw_input("Tell me your age:"))
-		self._gender = raw_input("Are you male or female?")
+		self._name = raw_input("What is your name? ")
+		self._age = int(raw_input("Tell me your age: "))
+		self._gender = raw_input("Are you Male or Female? ")
 
 class Magic(object):
 	""" does the magic"""
@@ -23,7 +23,7 @@ class Magic(object):
 	ran_num = 0
 
 	def intro(self):
-		print "Choose a number between 1 and 10."
+		print "\nChoose a number between 1 and 10."
 		
 		wait = True
 		while (wait):
@@ -34,12 +34,13 @@ class Magic(object):
 		""" asks the user to add a randomized number """
 		self.ran_num = randint(1,10)
 		self.number += self.ran_num
-		print "Add %s to your number." % (self.ran_num)
+		print "\nAdd %s to your number." % (self.ran_num)
 
 	def show_magic(self):
 
 		_sum = int(raw_input("What is your sum?: "))
-		print "Your number was %s" % (_sum - number)
+		self.number = _sum - self.number
+		print "\nYour number was %s" % (self.number)
 
 	def start(self):
 		self.intro()
@@ -63,4 +64,4 @@ game.start()
 
 
 
-print "Bye..."
+print "\nGood Bye..."
