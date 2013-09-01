@@ -31,3 +31,11 @@ Output:
 5
 """
 
+def get_input () :
+	get_range = str(raw_input())
+	print get_range
+	alist = get_range.split()
+	print alist[0]
+	print alist[1]
+
+get_input()
