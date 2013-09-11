@@ -8,7 +8,7 @@ public class SecureSystem {
 
 		// create objects with security label
 
-		// read command line
+		// read command line ########################################################
 		System.out.println("Hello!");
 		
 		System.out.println(args[0]);			
@@ -36,7 +36,7 @@ public class SecureSystem {
 			e.getMessage();
 			e.printStackTrace();
 		}
-
+		// done with read command line #############################################
 
 		// testing other classes
 
