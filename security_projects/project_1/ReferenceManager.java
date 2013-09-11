@@ -5,7 +5,7 @@ public class ReferenceManager {
 
 	public void executeRead () {
 		// do some tests
-		
+
 		// if allowed
 		objManager.read();
 
