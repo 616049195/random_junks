@@ -1,2 +1,2 @@
 READ Hal LObj 
-WRITE Lyle HObj 20Sue
+WRITE Lyle HObj 20

@@ -1,4 +1,9 @@
+// import java.io.FileReader;
+// import java.io.BufferedReader;
+import java.util.Scanner;
+// import java.io.File;
 import java.io.*;
+
 public class SecureSystem {
 	public static void main(String[] args) {
 		// create subjects with security label
@@ -11,20 +16,24 @@ public class SecureSystem {
 		System.out.println(args[0]);			
 			// open file (name in args[0])
 
+		try {
+			File aFile = new File(args[0]);
+			
+			Scanner sc = new Scanner(aFile);
+			String line = sc.nextLine();
+			System.out.println("From file: " + line);
 
-	try {		
-	    FileReader fr = new FileReader(args[0]); 
-		BufferedReader br = new BufferedReader(fr); 
-		String s; 
-		while((s = br.readLine()) != null) { 
-		System.out.println(s); 
-		} 
-		fr.close(); 
-	}
-	catch(Exception e) {
-		System.out.println("Error!!! ");
-		e.printStackTrace();
-	}
+			Scanner scLine = new Scanner(line);
+
+			System.out.println("From file: " + scLine.next());
+			System.out.println("From file: " + scLine.next());
+			System.out.println("From file: " + scLine.next());
+
+		}
+		catch (IOException e) {
+			e.getMessage();
+			e.printStackTrace();
+		}
 		System.out.println("Done!.");
 		// execute commands
 
