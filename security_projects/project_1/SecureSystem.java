@@ -20,15 +20,18 @@ public class SecureSystem {
 			File aFile = new File(args[0]);
 			
 			Scanner sc = new Scanner(aFile);
-			String line = sc.nextLine();
-			System.out.println("From file: " + line);
 
-			Scanner scLine = new Scanner(line);
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+				System.out.println("From file: " + line);
 
-			System.out.println("From file: " + scLine.next());
-			System.out.println("From file: " + scLine.next());
-			System.out.println("From file: " + scLine.next());
-
+				Scanner scLine = new Scanner(line);
+				while (scLine.hasNext()) {
+					System.out.println("From file: " + scLine.next());
+				}
+				scLine.close();
+				
+			}
 		}
 		catch (IOException e) {
 			e.getMessage();
