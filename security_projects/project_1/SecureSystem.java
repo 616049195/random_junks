@@ -20,7 +20,8 @@ public class SecureSystem {
 			Scanner sc = new Scanner(aFile);
 
 			while (sc.hasNextLine()) {
-				String line = sc.nextLine();
+				// case-insensitive, lower the case!
+				String line = sc.nextLine().toLowerCase();
 				System.out.println("From file: " + line);
 
 				Scanner scLine = new Scanner(line);
@@ -36,14 +37,17 @@ public class SecureSystem {
 			e.printStackTrace();
 		}
 
+
+		// testing other classes
+
 		InstructionObject test = new InstructionObject();
 		test.printWelcome();
 
-		Subjects test1 = new Subjects();
-		test1.printWelcome();
+		Subjects herbert = new Subjects("Herbert", 5);
+		herbert.printWelcome();
 
-		Objects test2 = new Objects();
-		test2.printWelcome();
+		Objects secretObj = new Objects("SecretObj", 5);
+		secretObj.printWelcome();
 
 		ReferenceManager test3 = new ReferenceManager();
 		test3.printWelcome();
@@ -54,11 +58,22 @@ public class SecureSystem {
 		BadInstructionObject test5 = new BadInstructionObject();
 		test5.printWelcome();
 
+		try {
+			testing();
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
 
 		System.out.println("Done!.");
 		// execute commands
 
 		// print states 
+	}
+
+	public static void testing () throws Exception{
+		BadInstructionObject hmm = new BadInstructionObject();
+		throw hmm;
 	}
 }
