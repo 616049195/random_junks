@@ -12,4 +12,8 @@ public class FirstGUI {
 		_frame.setSize(300, 300);
 		_frame.setVisible(true);
 	}
+
+	public void changeText() {
+		_button.setText("CLICKED!");
+	}
 }

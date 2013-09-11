@@ -31,11 +31,36 @@ Output:
 5
 """
 
-def get_input () :
-	get_range = str(raw_input())
-	print get_range
-	alist = get_range.split()
-	print alist[0]
-	print alist[1]
+# import
+import sys
 
-get_input()
+
+def get_input (read) :
+	print "hello"
+
+	for value in read :
+		_list = value.split()
+		b = _list[0]
+		e = _list[1]
+		print "done......."
+		yield [b, e]
+
+def get_prime (r1, r2) :
+	for num in range(r1, r2+1) :
+		if is_prime(num):
+			print num
+
+def is_prime (num) :
+	# if num is prime, return true
+	for div in range(2, num):
+		if num % div == 0:
+			return False
+	return True
+
+
+# another file...?
+for next_thing in get_input(sys.stdin) :
+	print next_thing
+
+print "HI"
+print is_prime(4)
