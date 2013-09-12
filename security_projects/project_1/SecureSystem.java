@@ -31,52 +31,30 @@ public class SecureSystem {
 				System.out.println("From file: " + line);
 
 				// check for illegal commands
-				// must have the length of 3 or 4
-				String line_test = line;
-				String[] line_arr = line.split("\\s+");
-				int line_length = line_arr.length;
+				if (check_cmd(line)) {
 
-				if (line_length < 3 || line_length > 4) {
-					// it's a bad instruction!
-					BadInstructionObject bad_inst = new BadInstructionObject();
+					Scanner scLine = new Scanner(line);
+
+					// parse command
+					inst_obj.set_type(scLine.next());
+					inst_obj.set_subj(scLine.next());
+					inst_obj.set_obj(scLine.next());
+
+					// exeception-prone (takes last cmd if there is one)
+					try {
+						inst_obj.set_value(scLine.next());
+					}
+					catch (NoSuchElementException e){
+						System.out.println("\n\n\n");
+						System.out.println("Error message: " + e.getMessage());
+						e.printStackTrace();
+						System.out.println("\n\n\n");
+					}
+					scLine.close();
 
 					// feed to ReferenceManager
-				}
-				// must have read or write in the first command
-				if (line_arr[0].toLowerCase() != "read" && line_arr[0].toLowerCase() != "write") {
-					// it's a bad instruction!
-					BadInstructionObject bad_inst = new BadInstructionObject();
-
-					// feed to ReferenceManager
 
 				}
-				// format = string string string int, where int is optional
-				Scanner scTest = new Scanner(line);
-				System.out.println(scTest.next().getClass());
-				scTest.close();								
-
-
-				Scanner scLine = new Scanner(line);
-
-				// parse command
-				inst_obj.set_type(scLine.next());
-				inst_obj.set_subj(scLine.next());
-				inst_obj.set_obj(scLine.next());
-
-				// exeception-prone (takes last cmd if there is one)
-				try {
-					inst_obj.set_value(scLine.next());
-				}
-				catch (NoSuchElementException e){
-					System.out.println("\n\n\n");
-					System.out.println("Error message: " + e.getMessage());
-					e.printStackTrace();
-					System.out.println("\n\n\n");
-				}
-				scLine.close();
-
-				// feed to ReferenceManager
-
 			}
 			sc.close();
 		}
@@ -120,6 +98,74 @@ public class SecureSystem {
 		// execute commands
 
 		// print states 
+	}
+
+	public static boolean check_cmd (String line) {
+		// must have the length of 3 or 4
+		String line_test = line;
+		String[] line_arr = line.split("\\s+");
+		int line_length = line_arr.length;
+
+		if (line_length < 3 || line_length > 4) {
+			// it's a bad instruction!
+			BadInstructionObject bad_inst = new BadInstructionObject();
+
+			// feed to ReferenceManager
+		
+			return false;
+		}
+		// must have read or write in the first command
+		if (line_arr[0].toLowerCase() != "read" && line_arr[0].toLowerCase() != "write") {
+			// it's a bad instruction!
+			BadInstructionObject bad_inst = new BadInstructionObject();
+
+			// feed to ReferenceManager
+
+			return false;
+		}
+		// format = string string string int, where int is optional
+		try {
+				Integer.parseInt(line_arr[1]);
+				// it's a bad instruction!
+				BadInstructionObject bad_inst = new BadInstructionObject();
+
+				// feed to Reference Manager
+
+				return false;
+		}
+		catch (Exception e) {
+			// it is not an int! good! do nothing
+		}
+
+		try {
+				Integer.parseInt(line_arr[2]);
+				// it's a bad instruction!
+				BadInstructionObject bad_inst = new BadInstructionObject();
+
+				// feed to Reference Manager
+
+				return false;
+		}
+		catch (Exception e) {
+			// it is not an int! good! do nothing
+		}
+
+		if (line_arr.length == 4)
+		{
+			try {
+				Integer.parseInt(line_arr[3]);
+				// it is an int! good! do nothing!
+			}
+			catch (Exception e) {
+				// it's a bad instruction!
+				BadInstructionObject bad_inst = new BadInstructionObject();
+
+				// feed to Reference Manager
+
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public static void testing () throws Exception{

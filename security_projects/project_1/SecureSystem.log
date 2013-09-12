@@ -1,0 +1,351 @@
+commit 441ffb1793debf8d7fdc1ce1b22e8abfa554c1e3
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Thu Sep 12 00:40:01 2013 -0500
+
+    going to sleep
+
+commit e2d72425154b51d853375f3f70c98614f9ad4965
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Wed Sep 11 23:25:15 2013 -0500
+
+    updates
+
+commit bc75787cb7d296f575d73ed169fbca632beb38f7
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Wed Sep 11 18:22:46 2013 -0500
+
+    instruction object exception handled
+
+commit 65d8ff71ef748cb665b0e043e572cf68a6b67c60
+Merge: daae2d0 1f04993
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Wed Sep 11 18:05:15 2013 -0500
+
+    Merge branch 'master' of github.com:gnis/my_projects
+
+commit daae2d0311a3892decd1e064ea5ad5c6ba107dd7
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Wed Sep 11 18:04:53 2013 -0500
+
+    skeleton init
+
+commit 44af1b05eec2649c5766da012c4a61facc4946ff
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Wed Sep 11 17:56:55 2013 -0500
+
+    skeleton init
+
+commit 1f04993f561382dadab180a5d177817977879dd7
+Author: Hyunchel Kim (Daniel Kim) <hyunchelkk@gmail.com>
+Date:   Wed Sep 11 12:40:27 2013 -0500
+
+    Delete hk6674@charity.cs.utexas.edu
+
+commit 9181205262ea44adb3bcf15f19be13c06112e32c
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Wed Sep 11 12:12:47 2013 -0500
+
+    makefile
+
+commit 8cf2aee070558c618d9c34bbf29434a01eccb9c4
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 21:51:56 2013 -0500
+
+    updates
+
+commit f00f872904b10fd8b46afe67bdf4c77378813439
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 21:51:26 2013 -0500
+
+    Exception successfully thwon
+
+commit 2172b03863c92e10a0cc40e58614ae0816c37421
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 21:50:37 2013 -0500
+
+    subjects objects initialized with names and values
+
+commit 5e59085df63242b4eda5dbbcd843adb723c9fef0
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 21:29:16 2013 -0500
+
+    init and testing for other classes
+
+commit 6254cd18597c6e87ede40902bd4670103f168808
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 21:14:01 2013 -0500
+
+    init
+
+commit b1057edabe137a220aa3d507f8ee3ad3d1c43367
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 21:01:39 2013 -0500
+
+    file reading skeleton complete (scanner)
+
+commit 23a04c09b74ad4276cda933dbcfb8e4662a2ddef
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 20:55:24 2013 -0500
+
+    file read with scanner only
+
+commit 8244400307a9ffcde8950b96c7b00e046d1cb501
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 20:35:04 2013 -0500
+
+    file_read
+
+commit 47be0618ed2d807c712796bfb5b28c9c51bfbed4
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 19:48:58 2013 -0500
+
+    updates
+
+commit a85fc3490aac8a1056706c7124e18771e7dfa821
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Sep 10 19:48:45 2013 -0500
+
+    init
+
+commit d901ea60ed9b8fab54cf10ba9f9ef0c71784d69f
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Sun Sep 1 18:54:05 2013 -0500
+
+    input
+
+commit 37a14c87b12f66d529be2f2117f43905882c1187
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Sun Sep 1 18:47:43 2013 -0500
+
+    init
+
+commit f09ad5ee54c08fff0444716f9d1113ea759dcb60
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Sun Sep 1 18:40:20 2013 -0500
+
+    deletes
+
+commit ecf6a04a1c70a744b5b9ba7ae5310285038e2b38
+Merge: 9eb5a66 248d138
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Sun Sep 1 18:38:34 2013 -0500
+
+    Merge branch 'master' of github.com:gnis/my_projects
+
+commit 9eb5a66d527e2bafd00df3d7d1a394fc6bcb0139
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Sun Sep 1 18:38:00 2013 -0500
+
+    deletes
+
+commit 248d138fc33bd3dc297ca20b576cfdb565083227
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Sun Aug 18 19:42:39 2013 -0500
+
+    rename
+
+commit b303359fecd998ca1c94e4a4f59c8d47eb3cab14
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Sun Aug 18 19:40:50 2013 -0500
+
+    deletes
+
+commit 7c7d1c09603a343509ba53f9c6b603fa329d6a25
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Sun Aug 18 19:33:23 2013 -0500
+
+    classes seperated
+
+commit 784ad3996935a45dc8e1d76ccc4b42af0856bac4
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Sat Aug 17 23:35:10 2013 -0500
+
+    edited prints
+
+commit b72d1410eaafefec56eea6050bb4e36ecb59e973
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Sat Aug 17 23:28:32 2013 -0500
+
+    print clean-ups
+
+commit fbab4536d6a8bbe55047e7856c87c3c8ca65fd7b
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Sat Aug 17 23:21:11 2013 -0500
+
+    game class done
+
+commit 128477d8ae2858f56c2fb9bbeb3e6e248d526ebd
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Sat Aug 17 22:27:13 2013 -0500
+
+    player info works
+
+commit 9aa005a5df544b0e223a03e16bd744de3a82e9ce
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Fri Aug 16 18:32:11 2013 -0500
+
+    syntax
+
+commit f5c93a338a7f6067dee4e7ee7c24503a020f63c0
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Aug 15 17:24:45 2013 -0500
+
+    readme update
+
+commit eebcec1e2f749b30e9124b15060505bd0556a080
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Aug 15 17:22:35 2013 -0500
+
+    readme update
+
+commit 9e8578658b2f10aa398ed921b9be35699feab36d
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Aug 15 15:54:56 2013 -0500
+
+    battleship complete
+
+commit 801a5f6bd36fc24a996537306f5fc7f54df209e0
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Aug 15 15:53:19 2013 -0500
+
+    battleship complete
+
+commit 246f572bef6fac27bdc2d85d617734efb93379f9
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Aug 15 15:46:04 2013 -0500
+
+    battleship updated
+
+commit 3a3c4686f159ef501256026fa92c6cfce732b338
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Aug 15 15:39:36 2013 -0500
+
+    battleship updated
+
+commit 581d50a6c10a619edcb2dc309ab010a95e2723a3
+Merge: c055804 5586ea6
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Aug 15 15:19:12 2013 -0500
+
+    Merge branch 'master' of github.com:gnis/my_projects
+
+commit c055804767a6db62ab562dfedafcf2a9e62a7832
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Aug 15 15:18:42 2013 -0500
+
+    games
+
+commit 5586ea6b091449b1c42b81664bd5edce7731b0b2
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Sat Aug 10 10:29:49 2013 -0500
+
+    removed
+
+commit f32f31800a432136962de3d7e6eb954b6add3d9a
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Jul 23 17:37:28 2013 -0500
+
+    GUI
+
+commit a669f0018665eaeaeb6cc7b007d4fa3ea119809d
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Jul 23 15:54:48 2013 -0500
+
+    classes removed
+
+commit 835702befbce240301749043152642dc590f33e6
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Jul 23 15:54:07 2013 -0500
+
+    MiniApp
+
+commit 350d727e2d757902277605374c61fc23385a6442
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Mon Jul 22 01:22:50 2013 -0500
+
+    Exceptions added
+
+commit b8dc1d295d4e5c2956c841209f01d6fa7a7141f7
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Mon Jul 22 00:09:54 2013 -0500
+
+    class deleted
+
+commit fc30db307a33fd95c77606354ca36f862b5d8f14
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Sat Jul 20 21:17:59 2013 -0500
+
+    small-projects began
+
+commit 91feaafc34506bbe3b9b4f0de2d9808a6f6707c5
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Jul 18 15:47:07 2013 -0500
+
+    static done.
+
+commit 9cbd19c47f12a32d9b4ae3fdec224123280cfba3
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Jul 18 15:20:00 2013 -0500
+
+    Static
+
+commit 67a32f100c1fad5c356932354d5dd8f31f7e876a
+Author: Hyunchel <hyunchelkk@gmail.com>
+Date:   Thu Jul 18 14:18:08 2013 -0500
+
+     Constructors. Dones.
+
+commit c2ea51ce9c752e1a60e9c8ab6b4d62de193bd33f
+Author: hyunchelk <hyunchelk@hyuchelk-Desktop.(none)>
+Date:   Wed Jul 17 23:45:30 2013 -0500
+
+    classes removed
+
+commit 849d780154f2a04e3c3c9c9c77f35b5a8927fbf8
+Author: hyunchelk <hyunchelk@hyuchelk-Desktop.(none)>
+Date:   Wed Jul 17 23:45:05 2013 -0500
+
+    Constructors
+
+commit 00d578f23ea96789c01f84decb6affe277e84ea2
+Author: hyunchelk <hyunchelk@hyuchelk-Desktop.(none)>
+Date:   Wed Jul 17 22:30:06 2013 -0500
+
+    java files only
+
+commit 5c18a5339c522fa4d2368c32736ec76a94d119c3
+Author: hyunchelk <hyunchelk@hyuchelk-Desktop.(none)>
+Date:   Wed Jul 17 22:24:50 2013 -0500
+
+    java files only
+
+commit 8df4d02ff6962d272b80cd947044a9890620c4a0
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Wed Jul 17 15:29:57 2013 -0500
+
+    Interface
+
+commit 734200f782b91a3057cb6c5d4f90f0a08614ebde
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Jul 16 20:34:29 2013 -0500
+
+    init
+
+commit a3d34037de4f4564d1d8ff50760875a388f8cfd9
+Merge: 1814584 a46aeb4
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Jul 16 20:32:43 2013 -0500
+
+    Merge branch 'master' of github.com:gnis/my_projects
+
+commit 181458471807bd602091385b47f669ff5ba0991d
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Tue Jul 16 20:31:02 2013 -0500
+
+    init
+
+commit a46aeb43885ee470c9df8838153f89fc6e3b6df3
+Author: Hyunchel Kim (Daniel Kim) <hyunchelkk@gmail.com>
+Date:   Tue Jul 16 18:24:25 2013 -0700
+
+    Initial commit
