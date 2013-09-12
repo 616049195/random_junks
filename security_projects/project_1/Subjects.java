@@ -3,8 +3,14 @@ public class Subjects {
 	int level;
 	int temp;
 
+	public Subjects () {
+		this.name = "";
+		this.level = -1;
+		this.temp = 0;
+	}
+
 	public Subjects (String name, int level) {
-		this.name = name;
+		this.name = name.toLowerCase();
 		this.level = level;
 		this.temp = 0;
 	}

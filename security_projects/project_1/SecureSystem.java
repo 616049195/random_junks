@@ -10,11 +10,21 @@ public class SecureSystem {
 		ReferenceManager ref_mgr = new ReferenceManager();
 		
 		// create subjects with security label
-		Subjects dummy1 = new Subjects("dummy_1", 2);
+		Subjects dummy1 = new Subjects("Hal", 1);
+		Subjects dummy2 = new Subjects("Lyle", 1);
+
 			// inform to ref 
 			ref_mgr.addSubj(dummy1);
+			ref_mgr.addSubj(dummy2);
+
 		// create objects with security label
-		Objects test_doc = new Objects("test_document", 1);
+		Objects test_doc1 = new Objects("Lobj", 2);
+		Objects test_doc2 = new Objects("Hobj", 1);
+
+			// inform to ref
+			ref_mgr.addObj(test_doc1);
+			ref_mgr.addObj(test_doc2);
+
 
 		// read command line ########################################################
 		System.out.println("Hello!");

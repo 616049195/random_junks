@@ -35,23 +35,76 @@ public class ReferenceManager {
 
 		}
 	}
-
-
 	public void executeRead (String subj, String obj) {
 		// do some tests
+		boolean subj_reg = false;
+		boolean obj_reg = false;
+		boolean dominates = false;
+
+		Subjects sb = new Subjects();
+		Objects ob = new Objects();
+
+
+
+		// test#1 is subject/object registered?
 		for (Subjects i : subj_arr) {
-			System.out.println(i.name);
+			if (i.name.equals(subj)) {
+				subj_reg = true;
+				sb = i;
+			}		
 		}
+		for (Objects j : obj_arr) {
+			if (j.name.equals(obj)) {
+				obj_reg = true;
+				ob = j;
+			}
+		}
+		// test#2 subject >= object ?
+		if (sb.level <= ob.level) {
+			dominates = true;
+		}
+
 		// if allowed
-		objManager.read();
+		if (subj_reg && obj_reg && dominates) {
+
+			objManager.read();
+		}
 
 	}
 
 	public void executeWrite (String subj, String obj, int value) {
-		// do some tests for validity
-		
+		// do some tests
+		boolean subj_reg = false;
+		boolean obj_reg = false;
+		boolean dominates = false;
+
+		Subjects sb = new Subjects();
+		Objects ob = new Objects();
+
+		// test#1 is subject/object registered?
+		for (Subjects i : subj_arr) {
+			if (i.name.equals(subj)) {
+				subj_reg = true;
+				sb = i;
+			}		
+		}
+		for (Objects j : obj_arr) {
+			if (j.name.equals(obj)) {
+				obj_reg = true;
+				ob = j;
+			}
+		}
+		// test#2 subject >= object?
+		if (sb.level >= ob.level) {
+			dominates = true;
+		}
+
 		// if allowed
-		objManager.write();
+		if ((subj_reg && obj_reg) && (!dominates)) {
+
+			objManager.write();
+		}
+
 	}
 
 	public void printWelcome () {
