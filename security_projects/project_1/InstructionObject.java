@@ -22,6 +22,23 @@ public class InstructionObject {
 		this.value = v;
 	}
 
+	// getters (yeah...lame)
+	public String get_type () {
+		return this.inst_type;
+	}
+
+	public String get_subj () {
+		return this.subj_name;
+	}
+
+	public String get_obj () {
+		return this.obj_name;
+	}
+
+	public int get_value () {
+		return this.value;
+	}
+
 
 	public void printWelcome(){
 		System.out.println("Hello, Welcome to InstructionObject class!");

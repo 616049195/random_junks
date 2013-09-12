@@ -110,6 +110,9 @@ public class SecureSystem {
 			// it's a bad instruction!
 			BadInstructionObject bad_inst = new BadInstructionObject();
 
+			InstructionObject inst = new InstructionObject();
+			inst.set_type("bad");
+
 			// feed to ReferenceManager
 		
 			return false;
@@ -118,7 +121,9 @@ public class SecureSystem {
 		if (line_arr[0].toLowerCase() != "read" && line_arr[0].toLowerCase() != "write") {
 			// it's a bad instruction!
 			BadInstructionObject bad_inst = new BadInstructionObject();
-
+			InstructionObject inst = new InstructionObject();
+			inst.set_type("bad");
+			
 			// feed to ReferenceManager
 
 			return false;
@@ -128,7 +133,10 @@ public class SecureSystem {
 				Integer.parseInt(line_arr[1]);
 				// it's a bad instruction!
 				BadInstructionObject bad_inst = new BadInstructionObject();
-
+			
+				InstructionObject inst = new InstructionObject();
+				inst.set_type("bad");
+			
 				// feed to Reference Manager
 
 				return false;
@@ -141,7 +149,9 @@ public class SecureSystem {
 				Integer.parseInt(line_arr[2]);
 				// it's a bad instruction!
 				BadInstructionObject bad_inst = new BadInstructionObject();
-
+				InstructionObject inst = new InstructionObject();
+				inst.set_type("bad");
+			
 				// feed to Reference Manager
 
 				return false;
@@ -160,6 +170,9 @@ public class SecureSystem {
 				// it's a bad instruction!
 				BadInstructionObject bad_inst = new BadInstructionObject();
 
+				InstructionObject inst = new InstructionObject();
+				inst.set_type("bad");
+					
 				// feed to Reference Manager
 
 				return false;
