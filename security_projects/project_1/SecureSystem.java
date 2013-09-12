@@ -30,6 +30,32 @@ public class SecureSystem {
 				String line = sc.nextLine().toLowerCase();
 				System.out.println("From file: " + line);
 
+				// check for illegal commands
+				// must have the length of 3 or 4
+				String line_test = line;
+				String[] line_arr = line.split("\\s+");
+				int line_length = line_arr.length;
+
+				if (line_length < 3 || line_length > 4) {
+					// it's a bad instruction!
+					BadInstructionObject bad_inst = new BadInstructionObject();
+
+					// feed to ReferenceManager
+				}
+				// must have read or write in the first command
+				if (line_arr[0].toLowerCase() != "read" && line_arr[0].toLowerCase() != "write") {
+					// it's a bad instruction!
+					BadInstructionObject bad_inst = new BadInstructionObject();
+
+					// feed to ReferenceManager
+
+				}
+				// format = string string string int, where int is optional
+				Scanner scTest = new Scanner(line);
+				System.out.println(scTest.next().getClass());
+				scTest.close();								
+
+
 				Scanner scLine = new Scanner(line);
 
 				// parse command
