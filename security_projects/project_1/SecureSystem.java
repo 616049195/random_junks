@@ -15,6 +15,8 @@ public class SecureSystem {
 		System.out.println(args[0]);			
 			// open file (name in args[0])
 
+		// create ReferenceManager object
+		ReferenceManager ref_mgr = new ReferenceManager();
 		// create instruction object
 		InstructionObject inst_obj = new InstructionObject();
 
@@ -35,8 +37,7 @@ public class SecureSystem {
 				inst_obj.set_subj(scLine.next());
 				inst_obj.set_obj(scLine.next());
 
-				// exeception-prone
-				
+				// exeception-prone (takes last cmd if there is one)
 				try {
 					inst_obj.set_value(scLine.next());
 				}
@@ -46,18 +47,20 @@ public class SecureSystem {
 					e.printStackTrace();
 					System.out.println("\n\n\n");
 				}
-
-				// System.out.println(scLine.next());
-
 				scLine.close();
-				
+
+				// feed to ReferenceManager
+
 			}
+			sc.close();
 		}
 		catch (IOException e) {
 			e.getMessage();
 			e.printStackTrace();
 		}
 		// done with read command line #############################################
+
+
 
 		// testing other classes
 
