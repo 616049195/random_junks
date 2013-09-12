@@ -1,2 +1,4 @@
 READ Hal LObj
 WRITE Lyle HObj 20
+write lyle lobj 11
+READ Lyle Lobj

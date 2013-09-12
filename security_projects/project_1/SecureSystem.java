@@ -4,16 +4,17 @@ import java.io.*;
 
 
 public class SecureSystem {
+	// create ReferenceManager object
+	static ReferenceManager ref_mgr = new ReferenceManager();
+
 	public static void main(String[] args) {
 		
 		// create ObjectManager object
 		// ObjectManager obj_mgr = new ObjectManager();
-		// create ReferenceManager object
-		ReferenceManager ref_mgr = new ReferenceManager();
 		
 		// create subjects with security label
 		Subjects dummy1 = new Subjects("Hal", 1);
-		Subjects dummy2 = new Subjects("Lyle", 1);
+		Subjects dummy2 = new Subjects("Lyle", 2);
 
 			// inform to ref 
 			ref_mgr.addSubj(dummy1);
@@ -72,6 +73,9 @@ public class SecureSystem {
 
 					// feed to ReferenceManager
 					ref_mgr.validate(inst_obj);
+
+					// print state
+					printState();
 				}
 			}
 			sc.close();
@@ -188,6 +192,23 @@ public class SecureSystem {
 			}
 		}
 		return true;
+	}
+
+	public static void printState () {
+		// iterate through objects array
+
+		// for (Objects i : ref_mgr.obj_arr) {
+		// 	i.name = "JESUS";
+		// }
+		for (Objects i : ref_mgr.obj_arr) {
+			System.out.println(i.name + " has value: " + i.current_value);
+		}
+
+		// iterate through subjects array
+		for (Subjects j : ref_mgr.subj_arr) {
+			System.out.println(j.name + " has recently read: " + j.temp);
+		}
+
 	}
 
 	public static void testing () throws Exception{

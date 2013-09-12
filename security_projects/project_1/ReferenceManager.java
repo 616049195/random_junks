@@ -115,8 +115,10 @@ public class ReferenceManager {
 		}
 
 		// if allowed
-		if ((subj_reg && obj_reg) && (!dominates)) {
-
+		System.out.println("---------------in write, checking for booleans: " + subj_reg + " " + obj_reg + " " + dominates);
+// need to fix if statement...
+		if (subj_reg && obj_reg && dominates) {
+			System.out.println("-----------------------------pass the if statement!");
 			objManager.write(sb_index, ob_index, value);
 		}
 
@@ -131,14 +133,16 @@ public class ReferenceManager {
 
 		public void read (int sb_index, int ob_index) {
 			// perform read
-			System.out.println("+++++PERFORMING READ!");
+			System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING READ!");
 			subj_arr.get(sb_index).temp = obj_arr.get(ob_index).current_value;
 		}
 
 		public void write(int sb_index, int ob_index, int value) {
 			// perform write
-			System.out.println("+++++PERFORMING WRITE!");
+			System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING WRITE!");
+			System.out.println("++++++++check the given value: " + value);
 			obj_arr.get(ob_index).current_value = value;
+			System.out.println("--------value after store: " + obj_arr.get(ob_index).current_value);
 		}
 
 		public void printWelcome () {
