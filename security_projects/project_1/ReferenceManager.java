@@ -4,10 +4,17 @@ public class ReferenceManager {
 	ArrayList<Subjects> subj_arr = new ArrayList<Subjects>();
 	ArrayList<Objects> obj_arr = new ArrayList<Objects>();
 
-
 	// create ObjectManager
 	ObjectManager objManager = new ObjectManager();
 
+
+	public ReferenceManager () {
+
+	}
+
+	public ReferenceManager (ObjectManager new_objManager) {
+			this.objManager = new_objManager;
+	}
 
 	public void addSubj (Subjects subj) {
 		this.subj_arr.add(subj);
@@ -44,20 +51,23 @@ public class ReferenceManager {
 		Subjects sb = new Subjects();
 		Objects ob = new Objects();
 
-
+		int sb_index = -1;
+		int ob_index = -1;
 
 		// test#1 is subject/object registered?
 		for (Subjects i : subj_arr) {
 			if (i.name.equals(subj)) {
 				subj_reg = true;
 				sb = i;
-			}		
+			}
+			++sb_index;		
 		}
 		for (Objects j : obj_arr) {
 			if (j.name.equals(obj)) {
 				obj_reg = true;
 				ob = j;
 			}
+			++ob_index;
 		}
 		// test#2 subject >= object ?
 		if (sb.level <= ob.level) {
@@ -67,7 +77,7 @@ public class ReferenceManager {
 		// if allowed
 		if (subj_reg && obj_reg && dominates) {
 
-			objManager.read();
+			objManager.read(sb_index, ob_index);
 		}
 
 	}
@@ -81,18 +91,23 @@ public class ReferenceManager {
 		Subjects sb = new Subjects();
 		Objects ob = new Objects();
 
+		int sb_index = -1;
+		int ob_index = -1;
+
 		// test#1 is subject/object registered?
 		for (Subjects i : subj_arr) {
 			if (i.name.equals(subj)) {
 				subj_reg = true;
 				sb = i;
-			}		
+			}
+			++sb_index;		
 		}
 		for (Objects j : obj_arr) {
 			if (j.name.equals(obj)) {
 				obj_reg = true;
 				ob = j;
 			}
+			++ob_index;
 		}
 		// test#2 subject >= object?
 		if (sb.level >= ob.level) {
@@ -102,12 +117,32 @@ public class ReferenceManager {
 		// if allowed
 		if ((subj_reg && obj_reg) && (!dominates)) {
 
-			objManager.write();
+			objManager.write(sb_index, ob_index, value);
 		}
 
 	}
 
 	public void printWelcome () {
 		System.out.println("Hello, welcome to ReferenceManager class!");
+		System.out.println("Printing objman:");
+	}
+
+	class ObjectManager {
+
+		public void read (int sb_index, int ob_index) {
+			// perform read
+			System.out.println("+++++PERFORMING READ!");
+			subj_arr.get(sb_index).temp = obj_arr.get(ob_index).current_value;
+		}
+
+		public void write(int sb_index, int ob_index, int value) {
+			// perform write
+			System.out.println("+++++PERFORMING WRITE!");
+			obj_arr.get(ob_index).current_value = value;
+		}
+
+		public void printWelcome () {
+			System.out.println("Hello, welcome to ObjectManager class!");
+		}
 	}
 }

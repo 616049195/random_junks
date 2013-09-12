@@ -6,6 +6,8 @@ import java.io.*;
 public class SecureSystem {
 	public static void main(String[] args) {
 		
+		// create ObjectManager object
+		// ObjectManager obj_mgr = new ObjectManager();
 		// create ReferenceManager object
 		ReferenceManager ref_mgr = new ReferenceManager();
 		
@@ -84,23 +86,11 @@ public class SecureSystem {
 
 		// testing other classes
 
-		InstructionObject test = new InstructionObject();
-		test.printWelcome();
-
-		Subjects herbert = new Subjects("Herbert", 5);
-		herbert.printWelcome();
-
-		Objects secretObj = new Objects("SecretObj", 5);
-		secretObj.printWelcome();
-
-		ReferenceManager test3 = new ReferenceManager();
-		test3.printWelcome();
-
-		ObjectManager test4 = new ObjectManager();
-		test4.printWelcome();
 
 		BadInstructionObject test5 = new BadInstructionObject();
 		test5.printWelcome();
+
+
 
 		try {
 			testing();
