@@ -1,3 +1,15 @@
+commit 22de7f9de6f31173c9a0a86c4f3aa158c2b2b834
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Thu Sep 12 11:38:53 2013 -0500
+
+    set_inst
+
+commit 8f1155a44ee7378ab6962b0105728bd2a8076666
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Thu Sep 12 11:07:53 2013 -0500
+
+    badinstruction implement
+
 commit 441ffb1793debf8d7fdc1ce1b22e8abfa554c1e3
 Author: Hyunchel Kim <hyunchelkk@gmail.com>
 Date:   Thu Sep 12 00:40:01 2013 -0500

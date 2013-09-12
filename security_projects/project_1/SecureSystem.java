@@ -5,9 +5,16 @@ import java.io.*;
 
 public class SecureSystem {
 	public static void main(String[] args) {
+		
+		// create ReferenceManager object
+		ReferenceManager ref_mgr = new ReferenceManager();
+		
 		// create subjects with security label
-
+		Subjects dummy1 = new Subjects("dummy_1", 2);
+			// inform to ref 
+			ref_mgr.addSubj(dummy1);
 		// create objects with security label
+		Objects test_doc = new Objects("test_document", 1);
 
 		// read command line ########################################################
 		System.out.println("Hello!");
@@ -15,8 +22,6 @@ public class SecureSystem {
 		System.out.println(args[0]);			
 			// open file (name in args[0])
 
-		// create ReferenceManager object
-		ReferenceManager ref_mgr = new ReferenceManager();
 		// create instruction object
 		InstructionObject inst_obj = new InstructionObject();
 
@@ -29,6 +34,7 @@ public class SecureSystem {
 				// case-insensitive, lower the case!
 				String line = sc.nextLine().toLowerCase();
 				System.out.println("From file: " + line);
+
 
 				// check for illegal commands
 				if (check_cmd(line)) {
@@ -53,7 +59,7 @@ public class SecureSystem {
 					scLine.close();
 
 					// feed to ReferenceManager
-
+					ref_mgr.validate(inst_obj);
 				}
 			}
 			sc.close();
@@ -106,6 +112,7 @@ public class SecureSystem {
 		String[] line_arr = line.split("\\s+");
 		int line_length = line_arr.length;
 
+
 		if (line_length < 3 || line_length > 4) {
 			// it's a bad instruction!
 			BadInstructionObject bad_inst = new BadInstructionObject();
@@ -117,8 +124,9 @@ public class SecureSystem {
 		
 			return false;
 		}
+
 		// must have read or write in the first command
-		if (line_arr[0].toLowerCase() != "read" && line_arr[0].toLowerCase() != "write") {
+		if ( (line_arr[0].toLowerCase().equals("read")) && (line_arr[0].toLowerCase().equals("write")) ) {
 			// it's a bad instruction!
 			BadInstructionObject bad_inst = new BadInstructionObject();
 			InstructionObject inst = new InstructionObject();
@@ -165,6 +173,7 @@ public class SecureSystem {
 			try {
 				Integer.parseInt(line_arr[3]);
 				// it is an int! good! do nothing!
+
 			}
 			catch (Exception e) {
 				// it's a bad instruction!
@@ -172,7 +181,7 @@ public class SecureSystem {
 
 				InstructionObject inst = new InstructionObject();
 				inst.set_type("bad");
-					
+
 				// feed to Reference Manager
 
 				return false;
