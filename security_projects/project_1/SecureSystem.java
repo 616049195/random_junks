@@ -7,6 +7,9 @@ public class SecureSystem {
 	// create ReferenceManager object
 	static ReferenceManager ref_mgr = new ReferenceManager();
 
+	// create instruction object
+	static InstructionObject inst_obj = new InstructionObject();
+
 	public static void main(String[] args) {
 		
 		// create ObjectManager object
@@ -30,27 +33,30 @@ public class SecureSystem {
 
 
 		// read command line ########################################################
-		System.out.println("Hello!");
 		
 		System.out.println(args[0]);			
 			// open file (name in args[0])
 
-		// create instruction object
-		InstructionObject inst_obj = new InstructionObject();
 
 		try {
 			File aFile = new File(args[0]);
 			
 			Scanner sc = new Scanner(aFile);
 
+			System.out.println("Reading from file: " + args[0] + "\n");
+
+
 			while (sc.hasNextLine()) {
 				// case-insensitive, lower the case!
 				String line = sc.nextLine().toLowerCase();
-				System.out.println("From file: " + line);
 
 
 				// check for illegal commands
 				if (check_cmd(line)) {
+
+					System.out.println("-------insde legal cmd!");
+					System.out.println(line);
+
 
 					Scanner scLine = new Scanner(line);
 
@@ -64,10 +70,8 @@ public class SecureSystem {
 						inst_obj.set_value(scLine.next());
 					}
 					catch (NoSuchElementException e){
-						System.out.println("\n\n\n");
-						System.out.println("Error message: " + e.getMessage());
-						e.printStackTrace();
-						System.out.println("\n\n\n");
+						// System.out.println("Error message: " + e.getMessage());
+						// e.printStackTrace();
 					}
 					scLine.close();
 
@@ -91,24 +95,6 @@ public class SecureSystem {
 		// done with read command line #############################################
 
 
-
-		// testing other classes
-
-
-		BadInstructionObject test5 = new BadInstructionObject();
-		test5.printWelcome();
-
-
-
-		try {
-			testing();
-		}
-		catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-
-
-		System.out.println("Done!.");
 		// execute commands
 
 		// print states 
@@ -121,80 +107,168 @@ public class SecureSystem {
 		int line_length = line_arr.length;
 
 
-		if (line_length < 3 || line_length > 4) {
+		if (line_length != 3 && line_length != 4) {
+			System.out.println("-------------inside test# 1");
+
 			// it's a bad instruction!
 			BadInstructionObject bad_inst = new BadInstructionObject();
+			
+			// set InstructionObject as "bad"
+			inst_obj.set_type("bad");
 
-			InstructionObject inst = new InstructionObject();
-			inst.set_type("bad");
+			// feed to BadInstrution to ReferenceManager
+			ref_mgr.badInst(bad_inst);
 
-			// feed to ReferenceManager
-		
+
+			// System.out.println(Thread.currentThread().getStackTrace().getFileName());
+			// System.out.println(Thread.currentThread().getStackTrace().getMethodName());
+
+			// print state
+			printState();
+
+
 			return false;
 		}
+
+		System.out.println("PASSED TEST#1");
+
 
 		// must have read or write in the first command
-		if ( (line_arr[0].toLowerCase().equals("read")) && (line_arr[0].toLowerCase().equals("write")) ) {
+		if ( (!line_arr[0].toLowerCase().equals("read")) && (!line_arr[0].toLowerCase().equals("write")) ) {
+			
+			System.out.println("-------------inside test# 2");
+
 			// it's a bad instruction!
-			BadInstructionObject bad_inst = new BadInstructionObject();
-			InstructionObject inst = new InstructionObject();
-			inst.set_type("bad");
+			BadInstructionObject bad_inst = new BadInstructionObject();			inst_obj.set_type("bad");
 			
 			// feed to ReferenceManager
+			ref_mgr.badInst(bad_inst);
+
+			// print state
+			printState();
 
 			return false;
 		}
+
+		System.out.println("PASSED TEST#2");
+
 		// format = string string string int, where int is optional
 		try {
+	
+				System.out.println("-----------inside try block #1");
+				
 				Integer.parseInt(line_arr[1]);
 				// it's a bad instruction!
 				BadInstructionObject bad_inst = new BadInstructionObject();
 			
-				InstructionObject inst = new InstructionObject();
-				inst.set_type("bad");
+				inst_obj.set_type("bad");
 			
 				// feed to Reference Manager
+				ref_mgr.badInst(bad_inst);
+			
+				// print state
+				printState();
 
 				return false;
 		}
 		catch (Exception e) {
 			// it is not an int! good! do nothing
 		}
+
+		System.out.println("PASSED TEST#3");
+
 
 		try {
+				System.out.println("-----------inside try block #2");
+
 				Integer.parseInt(line_arr[2]);
+
 				// it's a bad instruction!
 				BadInstructionObject bad_inst = new BadInstructionObject();
-				InstructionObject inst = new InstructionObject();
-				inst.set_type("bad");
+				inst_obj.set_type("bad");
 			
 				// feed to Reference Manager
+			ref_mgr.badInst(bad_inst);
+		
+			// print state
+			printState();
 
 				return false;
 		}
 		catch (Exception e) {
 			// it is not an int! good! do nothing
 		}
+
+		System.out.println("PASSED TEST#4");
+
 
 		if (line_arr.length == 4)
 		{
+			System.out.println("--------inside the last if (length == 4)");
+
+			if (!line_arr[0].toLowerCase().equals("write")) {
+
+				System.out.println("-----------inside last if's if.........");
+
+				// it's a "read" command with 4 length. INVALID!
+				// it's a bad instruction!
+				BadInstructionObject bad_inst = new BadInstructionObject();
+
+				inst_obj.set_type("bad");
+
+				// feed to Reference Manager
+				ref_mgr.badInst(bad_inst);
+				
+				// print state
+				printState();
+
+				return false;
+			}
+
 			try {
 				Integer.parseInt(line_arr[3]);
 				// it is an int! good! do nothing!
 
 			}
 			catch (Exception e) {
+				// last command is  NOT int
 				// it's a bad instruction!
 				BadInstructionObject bad_inst = new BadInstructionObject();
 
-				InstructionObject inst = new InstructionObject();
-				inst.set_type("bad");
+				inst_obj.set_type("bad");
 
+				
 				// feed to Reference Manager
+				ref_mgr.badInst(bad_inst);
+				
+				// print state
+				printState();
 
 				return false;
 			}
 		}
+		else {
+			if (!line_arr[0].toLowerCase().equals("read")) {
+
+				System.out.println("-----------inside the ELSE");
+
+				// it's a "read" command with 4 length. INVALID!
+				// it's a bad instruction!
+				BadInstructionObject bad_inst = new BadInstructionObject();
+
+				inst_obj.set_type("bad");
+
+				// feed to Reference Manager
+				ref_mgr.badInst(bad_inst);
+				
+				// print state
+				printState();
+
+				return false;
+			}	
+		}
+		System.out.println("++++++++++++++++PASSED ALL TESTS+++++++++++++++++++");
+
 		return true;
 	}
 
@@ -212,11 +286,7 @@ public class SecureSystem {
 		for (Subjects j : ref_mgr.subj_arr) {
 			System.out.println(j.name + " has recently read: " + j.temp);
 		}
+		System.out.println();
 
-	}
-
-	public static void testing () throws Exception{
-		BadInstructionObject hmm = new BadInstructionObject();
-		throw hmm;
 	}
 }

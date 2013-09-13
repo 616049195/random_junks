@@ -31,6 +31,7 @@ public class ReferenceManager {
 
 	public void badInst (BadInstructionObject inst) {
 		// don't execute...what to do?
+		System.out.println(inst.getMessage());
 	}
 
 	public void validate (InstructionObject inst) throws Exception {
@@ -59,7 +60,7 @@ public class ReferenceManager {
 		int sb_index = -1;
 		int ob_index = -1;
 
-		// test#1 is subject/object registered?
+		// loop and find a name-match
 		for (Subjects i : subj_arr) {
 			if (i.name.equals(subj)) {
 				subj_reg = true;
@@ -75,26 +76,16 @@ public class ReferenceManager {
 			++ob_index;
 		}
 
+		// test#1: do we have both names of subject and object?
 		if ( (!subj_reg) || (!obj_reg) ) {
 			throw fail;
 		}
 
+		// test#2: is simple security property held?
 		if (SecurityLevel.simple_security(sb.level, ob.level)) {
-
-		}
-
-		// test#2 subject >= object ?
-		if (sb.level <= ob.level) {
-			dominates = true;
-
-		}
-
-		// if allowed
-		if (subj_reg && obj_reg && dominates) {
-
+			// simply read!
 			objManager.read(sb_index, ob_index);
 		}
-
 	}
 
 	public void executeWrite (String subj, String obj, int value) throws BadInstructionObject {
@@ -109,7 +100,7 @@ public class ReferenceManager {
 		int sb_index = -1;
 		int ob_index = -1;
 
-		// test#1 is subject/object registered?
+		// loop through and find a name-match for subject and object names
 		for (Subjects i : subj_arr) {
 			if (i.name.equals(subj)) {
 				subj_reg = true;
@@ -125,12 +116,13 @@ public class ReferenceManager {
 			++ob_index;
 		}
 
+		// both name-matches found?
 		if ( (!subj_reg) || (!obj_reg))
 		{
 			throw fail;
 		}
 
-		// *-property
+		// *-property?
 		if (SecurityLevel.star_property(sb.level, ob.level)) {
 			objManager.write(sb_index, ob_index, value);
 		}
@@ -146,16 +138,16 @@ public class ReferenceManager {
 
 		public void read (int sb_index, int ob_index) {
 			// perform read
-			System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING READ!");
+			// System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING READ!");
 			subj_arr.get(sb_index).temp = obj_arr.get(ob_index).current_value;
 		}
 
 		public void write(int sb_index, int ob_index, int value) {
 			// perform write
-			System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING WRITE!");
-			System.out.println("++++++++check the given value: " + value);
+			// System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING WRITE!");
+			// System.out.println("++++++++check the given value: " + value);
 			obj_arr.get(ob_index).current_value = value;
-			System.out.println("--------value after store: " + obj_arr.get(ob_index).current_value);
+			// System.out.println("--------value after store: " + obj_arr.get(ob_index).current_value);
 		}
 
 		public void printWelcome () {
