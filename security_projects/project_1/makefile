@@ -1,9 +1,9 @@
 all:
 	make SecureSystem.zip
 
-diff: SecureSystem.java instructionList Sample_Output 
+diff: SecureSystem.java instructionList Test_Output 
 	java SecureSystem instructionList > output.tmp
-	diff output.tmp Sample_Output
+	diff output.tmp Test_Output
 	rm output.tmp
 
 clean:
