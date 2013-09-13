@@ -1,3 +1,27 @@
+commit 7d60f17089777132a12bb1f818321b535ff18e37
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Thu Sep 12 22:53:04 2013 -0500
+
+    subjects/objects moved to RefManager
+
+commit cc54f95a24a3b8e1cba24725d3b1ebbb89051fda
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Thu Sep 12 22:52:13 2013 -0500
+
+    subject/object moved to RefManager
+
+commit 099e10db79bd92f3b3ae0b593c8c1fcb294d69c6
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Thu Sep 12 22:28:21 2013 -0500
+
+    removes
+
+commit e58cd5e63dfdc5909a8805db35717cce040f6619
+Author: Hyunchel Kim <hyunchelkk@gmail.com>
+Date:   Thu Sep 12 22:27:54 2013 -0500
+
+    code clean #1: clean useless comments
+
 commit a21345b1f218bbeb61826838d8cfcc88e9465d52
 Author: Hyunchel Kim <hyunchelkk@gmail.com>
 Date:   Thu Sep 12 22:19:38 2013 -0500
