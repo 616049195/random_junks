@@ -10,14 +10,21 @@ public class SecureSystem {
 	// create instruction object
 	static InstructionObject inst_obj = new InstructionObject();
 
+	static String subject_name;
+	static String object_name;
+	static String main_cmd;
+	static int    cmd_value;
+	static int    cmd_length;
+
 	public static void main(String[] args) {
 		
 		// create ObjectManager object
 		// ObjectManager obj_mgr = new ObjectManager();
 		
 		// create subjects with security label
-		Subjects dummy1 = new Subjects("Hal", 1);
-		Subjects dummy2 = new Subjects("Lyle", 2);
+		Subjects dummy1 = new Subjects("Lyle", 2);
+
+		Subjects dummy2 = new Subjects("Hal", 1);
 
 			// inform to ref 
 			ref_mgr.addSubj(dummy1);
@@ -34,7 +41,7 @@ public class SecureSystem {
 
 		// read command line ########################################################
 		
-		System.out.println(args[0]);			
+		// System.out.println(args[0]);			
 			// open file (name in args[0])
 
 
@@ -54,8 +61,15 @@ public class SecureSystem {
 				// check for illegal commands
 				if (check_cmd(line)) {
 
-					System.out.println("-------insde legal cmd!");
-					System.out.println(line);
+					// System.out.println("-------insde legal cmd!");
+
+					if (cmd_length == 3) {
+						System.out.println(subject_name + " " + main_cmd + " " + object_name);
+					}
+					else {
+						System.out.println(subject_name + " " + main_cmd + " value " + cmd_value + " to " + object_name);
+					}
+					// System.out.println(line);
 
 
 					Scanner scLine = new Scanner(line);
@@ -108,7 +122,7 @@ public class SecureSystem {
 
 
 		if (line_length != 3 && line_length != 4) {
-			System.out.println("-------------inside test# 1");
+			// System.out.println("-------------inside test# 1");
 
 			// it's a bad instruction!
 			BadInstructionObject bad_inst = new BadInstructionObject();
@@ -130,13 +144,13 @@ public class SecureSystem {
 			return false;
 		}
 
-		System.out.println("PASSED TEST#1");
+		// System.out.println("PASSED TEST#1");
 
 
 		// must have read or write in the first command
 		if ( (!line_arr[0].toLowerCase().equals("read")) && (!line_arr[0].toLowerCase().equals("write")) ) {
 			
-			System.out.println("-------------inside test# 2");
+			// System.out.println("-------------inside test# 2");
 
 			// it's a bad instruction!
 			BadInstructionObject bad_inst = new BadInstructionObject();			inst_obj.set_type("bad");
@@ -150,12 +164,12 @@ public class SecureSystem {
 			return false;
 		}
 
-		System.out.println("PASSED TEST#2");
+		// System.out.println("PASSED TEST#2");
 
 		// format = string string string int, where int is optional
 		try {
 	
-				System.out.println("-----------inside try block #1");
+				// System.out.println("-----------inside try block #1");
 				
 				Integer.parseInt(line_arr[1]);
 				// it's a bad instruction!
@@ -175,11 +189,11 @@ public class SecureSystem {
 			// it is not an int! good! do nothing
 		}
 
-		System.out.println("PASSED TEST#3");
+		// System.out.println("PASSED TEST#3");
 
 
 		try {
-				System.out.println("-----------inside try block #2");
+				// System.out.println("-----------inside try block #2");
 
 				Integer.parseInt(line_arr[2]);
 
@@ -199,16 +213,16 @@ public class SecureSystem {
 			// it is not an int! good! do nothing
 		}
 
-		System.out.println("PASSED TEST#4");
+		// System.out.println("PASSED TEST#4");
 
 
 		if (line_arr.length == 4)
 		{
-			System.out.println("--------inside the last if (length == 4)");
+			// System.out.println("--------inside the last if (length == 4)");
 
 			if (!line_arr[0].toLowerCase().equals("write")) {
 
-				System.out.println("-----------inside last if's if.........");
+				// System.out.println("-----------inside last if's if.........");
 
 				// it's a "read" command with 4 length. INVALID!
 				// it's a bad instruction!
@@ -226,9 +240,10 @@ public class SecureSystem {
 			}
 
 			try {
-				Integer.parseInt(line_arr[3]);
+				cmd_value = Integer.parseInt(line_arr[3]);
 				// it is an int! good! do nothing!
-
+				// save!
+				main_cmd = line_arr[0] + "s";
 			}
 			catch (Exception e) {
 				// last command is  NOT int
@@ -250,7 +265,7 @@ public class SecureSystem {
 		else {
 			if (!line_arr[0].toLowerCase().equals("read")) {
 
-				System.out.println("-----------inside the ELSE");
+				// System.out.println("-----------inside the ELSE");
 
 				// it's a "read" command with 4 length. INVALID!
 				// it's a bad instruction!
@@ -265,9 +280,14 @@ public class SecureSystem {
 				printState();
 
 				return false;
-			}	
+			}
+			main_cmd = line_arr[0] + "s";	
 		}
-		System.out.println("++++++++++++++++PASSED ALL TESTS+++++++++++++++++++");
+		// System.out.println("++++++++++++++++PASSED ALL TESTS+++++++++++++++++++");
+
+		subject_name = line_arr[1];
+		object_name = line_arr[2];
+		cmd_length = line_arr.length;
 
 		return true;
 	}
@@ -278,13 +298,14 @@ public class SecureSystem {
 		// for (Objects i : ref_mgr.obj_arr) {
 		// 	i.name = "JESUS";
 		// }
+		System.out.println("The current state is: ");
 		for (Objects i : ref_mgr.obj_arr) {
-			System.out.println(i.name + " has value: " + i.current_value);
+			System.out.println("	" + i.name + " has value: " + i.current_value);
 		}
 
 		// iterate through subjects array
 		for (Subjects j : ref_mgr.subj_arr) {
-			System.out.println(j.name + " has recently read: " + j.temp);
+			System.out.println("	" + j.name + " has recently read: " + j.temp);
 		}
 		System.out.println();
 

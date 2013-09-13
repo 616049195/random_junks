@@ -62,18 +62,20 @@ public class ReferenceManager {
 
 		// loop and find a name-match
 		for (Subjects i : subj_arr) {
+			++sb_index;		
 			if (i.name.equals(subj)) {
 				subj_reg = true;
 				sb = i;
+				break;
 			}
-			++sb_index;		
 		}
 		for (Objects j : obj_arr) {
+			++ob_index;
 			if (j.name.equals(obj)) {
 				obj_reg = true;
 				ob = j;
+				break;
 			}
-			++ob_index;
 		}
 
 		// test#1: do we have both names of subject and object?
@@ -86,6 +88,10 @@ public class ReferenceManager {
 			// simply read!
 			objManager.read(sb_index, ob_index);
 		}
+		else {
+			subj_arr.get(sb_index).temp = 0;
+		}
+
 	}
 
 	public void executeWrite (String subj, String obj, int value) throws BadInstructionObject {
@@ -102,18 +108,20 @@ public class ReferenceManager {
 
 		// loop through and find a name-match for subject and object names
 		for (Subjects i : subj_arr) {
+			++sb_index;		
 			if (i.name.equals(subj)) {
 				subj_reg = true;
 				sb = i;
+				break;
 			}
-			++sb_index;		
 		}
 		for (Objects j : obj_arr) {
+			++ob_index;
 			if (j.name.equals(obj)) {
 				obj_reg = true;
 				ob = j;
+				break;
 			}
-			++ob_index;
 		}
 
 		// both name-matches found?
@@ -140,6 +148,9 @@ public class ReferenceManager {
 			// perform read
 			// System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING READ!");
 			subj_arr.get(sb_index).temp = obj_arr.get(ob_index).current_value;
+			
+			// System.out.println(subj_arr.get(sb_index).name + " reads " + obj_arr.get(ob_index).name);
+			
 		}
 
 		public void write(int sb_index, int ob_index, int value) {
