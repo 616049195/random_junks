@@ -21,12 +21,14 @@ public class ReferenceManager {
 			this.objManager = new_objManager;
 	}
 
-	public void addSubj (Subjects subj) {
-		this.subj_arr.add(subj);
+	public void createSubj (String subj_name, int lvl) {
+		Subjects _subj = new Subjects(subj_name, lvl);
+		this.subj_arr.add(_subj);
 	}
 
-	public void addObj (Objects obj) {
-		this.obj_arr.add(obj);
+	public void createObj (String obj_name, int lvl) {
+		Objects _obj = new Objects(obj_name, lvl);
+		this.obj_arr.add(_obj);
 	}
 
 	public void badInst (BadInstructionObject inst) {

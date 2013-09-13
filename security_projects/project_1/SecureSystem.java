@@ -19,21 +19,13 @@ public class SecureSystem {
 	public static void main(String[] args) {
 		
 		
-		// create subjects with security label
-		Subjects lyle = new Subjects("Lyle", 2);
-		Subjects hal = new Subjects("Hal", 1);
+		// create subjects with security label and inform
+		ref_mgr.createSubj("Lyle", 2);
+		ref_mgr.createSubj("Hal", 1);
 
-			// inform to ref 
-			ref_mgr.addSubj(lyle);
-			ref_mgr.addSubj(hal);
-
-		// create objects with security label
-		Objects lobj = new Objects("Lobj", 2);
-		Objects hobj = new Objects("Hobj", 1);
-
-			// inform to ref
-			ref_mgr.addObj(lobj);
-			ref_mgr.addObj(hobj);
+		// create objects with security label and inform
+		ref_mgr.createObj("Lobj", 2);
+		ref_mgr.createObj("Hobj", 1);
 
 		// read command line ########################################################
 		
