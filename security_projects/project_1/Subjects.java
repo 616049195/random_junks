@@ -14,9 +14,4 @@ public class Subjects {
 		this.level = level;
 		this.temp = 0;
 	}
-
-	public void printWelcome () {
-		System.out.println("Hello, welcome to Subjects class!");
-
-	}
 }

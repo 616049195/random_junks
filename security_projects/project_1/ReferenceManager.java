@@ -137,32 +137,16 @@ public class ReferenceManager {
 
 	}
 
-	public void printWelcome () {
-		System.out.println("Hello, welcome to ReferenceManager class!");
-		System.out.println("Printing objman:");
-	}
-
 	class ObjectManager {
 
 		public void read (int sb_index, int ob_index) {
 			// perform read
-			// System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING READ!");
 			subj_arr.get(sb_index).temp = obj_arr.get(ob_index).current_value;
-			
-			// System.out.println(subj_arr.get(sb_index).name + " reads " + obj_arr.get(ob_index).name);
-			
 		}
 
 		public void write(int sb_index, int ob_index, int value) {
 			// perform write
-			// System.out.println("+++++" + subj_arr.get(sb_index).name + " PERFORMING WRITE!");
-			// System.out.println("++++++++check the given value: " + value);
 			obj_arr.get(ob_index).current_value = value;
-			// System.out.println("--------value after store: " + obj_arr.get(ob_index).current_value);
-		}
-
-		public void printWelcome () {
-			System.out.println("Hello, welcome to ObjectManager class!");
 		}
 	}
 }

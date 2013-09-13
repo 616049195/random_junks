@@ -7,8 +7,4 @@ public final class BadInstructionObject extends Exception {
 	public String getMessage () {
 		return message;
 	}
-
-	public void printWelcome () {
-		System.out.println("Hello, welcome to BadInstructionObject final class!");
-	}
 }

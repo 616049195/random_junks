@@ -14,8 +14,4 @@ public class Objects {
 		this.level = level;
 		this.current_value = 0;
 	}
-
-	public void printWelcome () {
-		System.out.println("Hello, welcome to Objects class!");
-	}
 }

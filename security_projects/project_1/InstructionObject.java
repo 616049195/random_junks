@@ -38,10 +38,4 @@ public class InstructionObject {
 	public int get_value () {
 		return this.value;
 	}
-
-
-	public void printWelcome(){
-		System.out.println("Hello, Welcome to InstructionObject class!");
-		
-	}
 }
