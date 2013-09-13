@@ -1,7 +1,7 @@
 // import java.lang.Exception;
 
 public final class BadInstructionObject extends Exception {
-	final String message = "BadInstructionObject";
+	final String message = "Bad Instruction!";
 
 	@Override
 	public String getMessage () {

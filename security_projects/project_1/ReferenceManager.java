@@ -7,6 +7,11 @@ public class ReferenceManager {
 	// create ObjectManager
 	ObjectManager objManager = new ObjectManager();
 
+	// create SecurityLevel
+	// SecurityLevel seclvl = new SecurityLevel();
+
+	// creat BadInstructionObject
+	BadInstructionObject fail = new BadInstructionObject();
 
 	public ReferenceManager () {
 
@@ -28,21 +33,21 @@ public class ReferenceManager {
 		// don't execute...what to do?
 	}
 
-	public void validate (InstructionObject inst) {
+	public void validate (InstructionObject inst) throws Exception {
 		// valid instructinon?
 
 		if (inst.get_type().equals("read")) {
-				executeRead(inst.get_subj(), inst.get_obj());
+			executeRead(inst.get_subj(), inst.get_obj());
 		}
 		else if (inst.get_type().equals("write")) {
-				executeWrite(inst.get_subj(), inst.get_obj(), inst.get_value());
+			executeWrite(inst.get_subj(), inst.get_obj(), inst.get_value());
 		}
 		else {
 			// bad instruction...?
 
 		}
 	}
-	public void executeRead (String subj, String obj) {
+	public void executeRead (String subj, String obj) throws BadInstructionObject {
 		// do some tests
 		boolean subj_reg = false;
 		boolean obj_reg = false;
@@ -69,9 +74,19 @@ public class ReferenceManager {
 			}
 			++ob_index;
 		}
+
+		if ( (!subj_reg) || (!obj_reg) ) {
+			throw fail;
+		}
+
+		if (SecurityLevel.simple_security(sb.level, ob.level)) {
+
+		}
+
 		// test#2 subject >= object ?
 		if (sb.level <= ob.level) {
 			dominates = true;
+
 		}
 
 		// if allowed
@@ -82,7 +97,7 @@ public class ReferenceManager {
 
 	}
 
-	public void executeWrite (String subj, String obj, int value) {
+	public void executeWrite (String subj, String obj, int value) throws BadInstructionObject {
 		// do some tests
 		boolean subj_reg = false;
 		boolean obj_reg = false;
@@ -109,16 +124,14 @@ public class ReferenceManager {
 			}
 			++ob_index;
 		}
-		// test#2 subject >= object?
-		if (sb.level >= ob.level) {
-			dominates = true;
+
+		if ( (!subj_reg) || (!obj_reg))
+		{
+			throw fail;
 		}
 
-		// if allowed
-		System.out.println("---------------in write, checking for booleans: " + subj_reg + " " + obj_reg + " " + dominates);
-// need to fix if statement...
-		if (subj_reg && obj_reg && dominates) {
-			System.out.println("-----------------------------pass the if statement!");
+		// *-property
+		if (SecurityLevel.star_property(sb.level, ob.level)) {
 			objManager.write(sb_index, ob_index, value);
 		}
 

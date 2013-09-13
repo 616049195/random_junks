@@ -72,8 +72,12 @@ public class SecureSystem {
 					scLine.close();
 
 					// feed to ReferenceManager
-					ref_mgr.validate(inst_obj);
-
+					try {
+						ref_mgr.validate(inst_obj);
+					}
+					catch(Exception e) {
+						System.out.println(e.getMessage());
+					}
 					// print state
 					printState();
 				}
