@@ -31,6 +31,7 @@ class Data {
 		_info.delete();
 		return true;	
 	}
+
 }
 
 class Account {
@@ -44,6 +45,7 @@ class Account {
 		// have a random hash? to produce an unique id.
 
 		Data.createProfile(name);
+		Data.deleteProfile(name);
 
 	}
 
