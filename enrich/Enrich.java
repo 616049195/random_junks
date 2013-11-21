@@ -25,6 +25,12 @@ class Data {
 			return false;
 		}
 	}
+
+	public static boolean deleteProfile(String name) {
+		File _info = new File("./data/" + name);
+		_info.delete();
+		return true;	
+	}
 }
 
 class Account {
@@ -38,23 +44,6 @@ class Account {
 		// have a random hash? to produce an unique id.
 
 		Data.createProfile(name);
-		// file name should be an unique user id at some point..
-		try {
-			String content = "Hello!";
-			File _info = new File("./data/" + name);
-			if (!_info.exists()) {
-				_info.createNewFile();
-			}
-				FileWriter fw = new FileWriter(_info.getAbsoluteFile());
-				BufferedWriter bw = new BufferedWriter(fw);
-
-				bw.write(content);
-				bw.close();
-			
-		}	
-		catch (IOException e) {
-			e.printStackTrace();
-		}
 
 	}
 
