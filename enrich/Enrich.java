@@ -23,6 +23,7 @@ class Data {
 
 			bw.write(name);
 			bw.close();
+
 			return true;
 		}	
 		catch (IOException e) {
@@ -78,7 +79,20 @@ class Data {
 
 	}
 
-	
+	public static boolean isNew () {
+		try {
+			File _dir = new File("./data");
+			if (_dir.list().length == 0) {
+				return true;
+			}
+			return false;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return true;
+		}
+	}
+		
 
 }
 
@@ -93,10 +107,6 @@ class Account {
 		// have a random hash? to produce an unique id.
 
 		Data.createProfile(name);
-		Data.editProfile(name, 200.50);
-		Data.printProfile(name);
-		Data.deleteProfile(name);
-
 	}
 
 	public String get_name () {
@@ -116,14 +126,26 @@ class Account {
 	}
 }
 
-public class Enrich {
-	public static void main (String[] args) {
-		System.out.println("Enrich is about to make you rich.\n");
 
+public class Enrich {
+	public Account new_user () {
 		Console console = System.console();
 		String input = console.readLine("Your name: ");
 		Account ac1 = new Account(input);
 		System.out.println("Your account has been set up as " + ac1.get_name() + ".");
+		return ac1;
+	}
+
+	public static void main (String[] args) {
+		System.out.println("Enrich is about to make you rich.\n");
+
+		Enrich p1 = new Enrich();
+		Account ac1;
+		if (Data.isNew()) {
+			ac1 = p1.new_user();
+		}
+		ac1 = 
+
 
 	}
 }
