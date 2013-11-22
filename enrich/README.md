@@ -6,7 +6,7 @@ Primary purpose of this program is to enable my insight in finance.
 Secondary is to save me from unnecessary spendings.
 -----------------------
 
-Currently suppors multiple users.
+Currently supports multiple users.
 
 A First Level Header
 ====================
@@ -22,6 +22,20 @@ The quick brown fox jumped over the lazy
 dog's back.
 
 ### Header 3
+# Header 1
+## Header 2
+#### Header 4?
+
+This is just a paragraph....
+
+* very 
+* important
+*youknow?
+
+1. number
+2. yourself
+
+I can **bold** myself or even *italcize* myself...
 
 > This is a blockquote.
 > 
