@@ -92,7 +92,11 @@ class Data {
 			return true;
 		}
 	}
-		
+	
+	public static void makeDir () {
+		File _dir = new File("./data");
+		_dir.mkdir();
+	}	
 
 }
 
@@ -137,15 +141,16 @@ public class Enrich {
 	}
 
 	public static void main (String[] args) {
+
 		System.out.println("Enrich is about to make you rich.\n");
 
 		Enrich p1 = new Enrich();
 		Account ac1;
 		if (Data.isNew()) {
+			Data.makeDir();
 			ac1 = p1.new_user();
 		}
-		ac1 = 
-
+		// ac1 =
 
 	}
 }
