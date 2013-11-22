@@ -68,6 +68,16 @@ public class TestEnrich {
 			assert (!_test.createNewFile());
 
 			_test.delete();
+
+			assert (!Data.editProfile("Testing", 2.50));
+			assert (_test.createNewFile());
+			_test.delete();
+
+			assert (Data.createProfile("Testing"));
+			assert (!_test.createNewFile());
+			assert (Data.editProfile("Testing", 2.50));
+			
+			assert (print the file....)
 		}
 		catch (IOException e) {
 			e.printStackTrace();

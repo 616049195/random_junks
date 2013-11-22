@@ -3,21 +3,26 @@ import java.io.File;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.util.Scanner;
 
 class Data {
+	// things to do //
+	// 1. must create directory when visited for the first time...
+	//
+
+
 	public static boolean createProfile(String name) {
 		// file name should be an unique user id at some point..
 		try {
-			String content = "Hello!";
 			File _info = new File("./data/" + name);
 			if (!_info.exists()) {
 				_info.createNewFile();
 			}
-				FileWriter fw = new FileWriter(_info.getAbsoluteFile());
-				BufferedWriter bw = new BufferedWriter(fw);
+			FileWriter fw = new FileWriter(_info.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
 
-				bw.write(content);
-				bw.close();
+			bw.write(name);
+			bw.close();
 			return true;
 		}	
 		catch (IOException e) {
@@ -32,6 +37,50 @@ class Data {
 		return true;	
 	}
 
+	public static boolean editProfile(String name, double amount) {
+		// file name should be an unique user id at some point..
+		try {
+			File _info = new File("./data/" + name);
+			if (!_info.exists()) {
+				return false;
+			}
+
+			FileWriter fw = new FileWriter(_info.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(name+"\n");
+			bw.write(String.valueOf(amount));
+			bw.close();
+			return true;
+		}	
+		catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public static boolean printProfile(String name) {
+		
+		try {
+			File _info = new File("./data/" + name);
+			Scanner sc = new Scanner(_info);
+
+			System.out.println("--------------------\n" + "Printing a profile for " + name);
+			// while (sc.hasNext()) {
+				System.out.println("Name: " + sc.nextLine());
+				System.out.println("Amount: " + sc.nextLine());
+			// }			
+			System.out.println("------ Done. -------");
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
+	
+
 }
 
 class Account {
@@ -45,6 +94,8 @@ class Account {
 		// have a random hash? to produce an unique id.
 
 		Data.createProfile(name);
+		Data.editProfile(name, 200.50);
+		Data.printProfile(name);
 		Data.deleteProfile(name);
 
 	}
