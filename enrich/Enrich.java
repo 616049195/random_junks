@@ -64,7 +64,7 @@ class Data {
 		File _info = new File("./data/" + name);
 		try {
 			Scanner sc = new Scanner(_info);
-			System.out.println(sc.nextLine());
+			sc.nextLine();
 			double amount = Double.parseDouble(sc.nextLine());
 			sc.close();
 			return amount;
@@ -161,17 +161,18 @@ public class Enrich {
 		Console console = System.console();
 		String input = console.readLine("Your name: ");
 		Account ac1 = new Account(input);
-		System.out.println("Your account has been set up as " + ac1.get_name() + ".");
+		System.out.println("Your new account has been set up as " + ac1.get_name() + ".\n");
 		return ac1;
 	}
 
-	public static Account get_user () {
+	public Account get_user () {
 		// read from the existing file
 		Console console = System.console();
 		String name = console.readLine("Your name: ");
 
 		double amount = Data.readProfile(name);
 		Account ac1 = new Account(name, amount);
+		System.out.println("Your account has been loaded.\n");
 		return ac1;
 	}
 	
@@ -187,7 +188,7 @@ public class Enrich {
 			ac1 = p1.new_user();
 		}
 		else {
-			ac1 = get_user();
+			ac1 = p1.get_user();
 		}
 
 	}
