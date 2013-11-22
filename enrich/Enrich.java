@@ -11,7 +11,7 @@ class Data {
 	//
 
 
-	public static boolean createProfile(String name) {
+	public static boolean createProfile (String name) {
 		// file name should be an unique user id at some point..
 		try {
 			File _info = new File("./data/" + name);
@@ -21,7 +21,8 @@ class Data {
 			FileWriter fw = new FileWriter(_info.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
 
-			bw.write(name);
+			bw.write(name+"\n");	
+			bw.write(String.valueOf(0.0));
 			bw.close();
 
 			return true;
@@ -32,13 +33,13 @@ class Data {
 		}
 	}
 
-	public static boolean deleteProfile(String name) {
+	public static boolean deleteProfile (String name) {
 		File _info = new File("./data/" + name);
 		_info.delete();
 		return true;	
 	}
 
-	public static boolean editProfile(String name, double amount) {
+	public static boolean editProfile (String name, double amount) {
 		// file name should be an unique user id at some point..
 		try {
 			File _info = new File("./data/" + name);
@@ -59,7 +60,21 @@ class Data {
 		}
 	}
 
-	public static boolean printProfile(String name) {
+	public static double readProfile (String name) {
+		File _info = new File("./data/" + name);
+		try {
+			Scanner sc = new Scanner(_info);
+			System.out.println(sc.nextLine());
+			double amount = Double.parseDouble(sc.nextLine());
+			sc.close();
+			return amount;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1.0;
+		}
+	}
+
+	public static boolean printProfile (String name) {
 		
 		try {
 			File _info = new File("./data/" + name);
@@ -92,7 +107,8 @@ class Data {
 			return true;
 		}
 	}
-	
+
+
 	public static void makeDir () {
 		File _dir = new File("./data");
 		_dir.mkdir();
@@ -111,6 +127,14 @@ class Account {
 		// have a random hash? to produce an unique id.
 
 		Data.createProfile(name);
+	}
+
+	public Account (String name, double amount) {
+		_name = name;
+		// have a random hash? to produce an unique id.
+
+		Data.createProfile(name);
+		Data.editProfile(name, amount);
 	}
 
 	public String get_name () {
@@ -132,6 +156,7 @@ class Account {
 
 
 public class Enrich {
+
 	public Account new_user () {
 		Console console = System.console();
 		String input = console.readLine("Your name: ");
@@ -139,6 +164,17 @@ public class Enrich {
 		System.out.println("Your account has been set up as " + ac1.get_name() + ".");
 		return ac1;
 	}
+
+	public static Account get_user () {
+		// read from the existing file
+		Console console = System.console();
+		String name = console.readLine("Your name: ");
+
+		double amount = Data.readProfile(name);
+		Account ac1 = new Account(name, amount);
+		return ac1;
+	}
+	
 
 	public static void main (String[] args) {
 
@@ -150,7 +186,9 @@ public class Enrich {
 			Data.makeDir();
 			ac1 = p1.new_user();
 		}
-		// ac1 =
+		else {
+			ac1 = get_user();
+		}
 
 	}
 }
