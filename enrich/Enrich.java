@@ -65,11 +65,10 @@ class Data {
 			Scanner sc = new Scanner(_info);
 
 			System.out.println("--------------------\n" + "Printing a profile for " + name);
-			// while (sc.hasNext()) {
-				System.out.println("Name: " + sc.nextLine());
-				System.out.println("Amount: " + sc.nextLine());
-			// }			
+			System.out.println("Name: " + sc.nextLine());
+			System.out.println("Amount: " + sc.nextLine());
 			System.out.println("------ Done. -------");
+			sc.close();
 			return true;
 		}
 		catch (Exception e) {
