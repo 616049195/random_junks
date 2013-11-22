@@ -62,7 +62,6 @@ public class TestEnrich {
 			Data.deleteProfile("Testing");
 			assert (_test.createNewFile());
 			assert (!_test.createNewFile());
-
 			_test.delete();
 
 			assert (!Data.editProfile("Testing", 2.50));
@@ -80,7 +79,7 @@ public class TestEnrich {
 	}
 
 	// @Test
-	public static void testFile () {
+	public static void testFileOutput () {
 		try {
 			File _test = new File("./data/Testing");
 			Scanner sc = new Scanner(_test);
@@ -99,9 +98,9 @@ public class TestEnrich {
 
 	public static void main (String[] args) {
 		System.out.println("-----------------Test-----------------");
-		
+
 		testDataFile();
-		testFile();
+		testFileOutput();
 
 		testAccountInit();
 
