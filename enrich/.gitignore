@@ -1,2 +1,5 @@
-// remove all classes
+// java classes
 *.class
+
+// misc.
+markdown_cheat.txt
