@@ -51,19 +51,33 @@ public class TestEnrich {
 		// test Data / files
 		try {
 			File _test = new File("./data/Testing");
-			assert (_test.createNewFile());
-			_test.delete();
-			assert (_test.createNewFile());
-			_test.delete();
 
+			// tests for create
+			assert (_test.createNewFile());
+			_test.delete();
+			assert (_test.createNewFile());
+			_test.delete();
 			Data.createProfile("Testing");		
 			assert (!_test.createNewFile());
 
+			// tests for delete
 			Data.deleteProfile("Testing");
 			assert (_test.createNewFile());
 			assert (!_test.createNewFile());
 			_test.delete();
 
+			// tests for read
+			assert (Data.createProfile("Testing"));
+			assert (!_test.createNewFile());
+			assert (Data.editProfile("Testing", 2.50));	
+			assert (Data.readProfile("Testing") == 2.50);	
+			assert (Data.editProfile("Testing", 12.50));	
+			assert (Data.readProfile("Testing") == 12.50);	
+			assert (Data.editProfile("Testing", -100.00));	
+			assert (Data.readProfile("Testing") == -100.00);	
+			_test.delete();
+
+			// tests for edit
 			assert (!Data.editProfile("Testing", 2.50));
 			assert (_test.createNewFile());
 			_test.delete();
@@ -71,6 +85,18 @@ public class TestEnrich {
 			assert (Data.createProfile("Testing"));
 			assert (!_test.createNewFile());
 			assert (Data.editProfile("Testing", 2.50));
+			testFileOutput("2.5");
+
+			assert (Data.createProfile("Testing"));
+			assert (!_test.createNewFile());
+			assert (Data.editProfile("Testing", -12.50));
+			testFileOutput("-12.5");
+
+			assert (Data.createProfile("Testing"));
+			assert (!_test.createNewFile());
+			assert (Data.editProfile("Testing", 0.00000000));
+			testFileOutput("0.0");
+
 		}
 		catch (IOException e) {
 			e.printStackTrace();
@@ -79,13 +105,13 @@ public class TestEnrich {
 	}
 
 	// @Test
-	public static void testFileOutput () {
+	public static void testFileOutput (String expected_double) {
 		try {
 			File _test = new File("./data/Testing");
 			Scanner sc = new Scanner(_test);
 
 			assert ("Testing".equals(sc.nextLine()));
-			assert ("2.5".equals(sc.nextLine()));	
+			assert (expected_double.equals(sc.nextLine()));	
 
 			sc.close();
 			_test.delete();
@@ -100,7 +126,6 @@ public class TestEnrich {
 		System.out.println("-----------------Test-----------------");
 
 		testDataFile();
-		testFileOutput();
 
 		testAccountInit();
 
@@ -111,8 +136,8 @@ public class TestEnrich {
 
 
 	
-
-
+		// clean up
+		Data.deleteProfile("Test Me");
 		System.out.println("OK.");
 
 
