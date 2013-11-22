@@ -4,7 +4,7 @@ all:
 
 run:
 	javac Enrich.java
-	java Enrich
+	java -ea Enrich
 
 test:
 	javac *.java
