@@ -1,0 +1,52 @@
+CURRENTLY THE FASTEST : Algorithm #7 with 1.0033
+
+    # algorithm #1
+    """
+    return (movieScore + userScore)/2
+    """
+
+    # algorithm #2
+    """
+    weighted_ms = movieScore * 0.5
+    weighted_us = userScore * 1.5
+    return (weighted_ms + weighted_us) / 2
+    """
+
+    # algorithm #3
+    """
+    bonus = movieScore - userScore
+    if bonus > 0 :
+        return ( (movieScore * (1 + bonus) + (userScore * (1-bonus)) )/2
+    else :
+        return ( (movieScore * (1 + bonus)) + (userScore * (1-bonus)) )/2
+    """
+  
+    # algorithm #4
+    """
+    weighted_ms = movieScore * 0.5
+    weighted_us = userScore * 1.5
+    bonus = movieScore - userScore
+
+    result = (weighted_ms + weighted_us) / 2
+    return result + bonus
+    """
+
+    # algorithm #5
+    """
+    bonus = movieScore - userScore
+    return userScore + bonus 
+    """
+
+    # algorithm #6
+    """
+    bonus = userScore - movieScore
+    return movieScore + bonus
+    """
+
+    """
+    # algorithm #7
+    weighted_ms = movieScore * 0.5
+    weighted_us = userScore * 1.5
+    bonus = (movieScore - userScore) / 2
+    return ((weighted_ms + weighted_us) + bonus) / 2
+    """
