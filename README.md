@@ -1,8 +1,7 @@
-my_projects
+random_junks
 ===========
 
-This is a folder for my personal projects.
+This folder is an aggregate of various junks.
 There is nothing to surprise you.
-I'm just playing around with codes.
+I'm just taking a dump on codes.
 
-Mainly written in Java, Python, and C++
